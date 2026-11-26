@@ -1,18 +1,14 @@
-:root { font-family: system-ui, sans-serif; color: #15181e; background: #f2f3f5; }
-body { margin: 0; }
-.page { max-width: 640px; margin: 0 auto; padding: 16px; }
-h1 { margin: 0; color: #d9500a; }
-.muted { color: #5a6170; margin: 4px 0; }
-.progress { font-weight: 600; }
-h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: #5a6170; margin: 24px 0 8px; }
-.item { background: white; border: 1px solid #d9dce2; border-left: 5px solid #d9dce2; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
-.item.ok { border-left-color: #1d8048; }
-.item.issue { border-left-color: #c0282b; }
-.item.na { border-left-color: #5a6170; }
-.item p { margin: 0 0 10px; }
-.buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.buttons button { min-height: 44px; border: 1px solid #d9dce2; border-radius: 8px; background: #f2f3f5; color: #5a6170; font-weight: 600; font-size: 1rem; cursor: pointer; }
-.buttons button.selected.ok { background: #1d8048; border-color: #1d8048; color: white; }
-.buttons button.selected.issue { background: #c0282b; border-color: #c0282b; color: white; }
-.buttons button.selected.na { background: #5a6170; border-color: #5a6170; color: white; }
-textarea { width: 100%; box-sizing: border-box; margin-top: 10px; min-height: 64px; padding: 8px; border: 1px solid #d9dce2; border-radius: 8px; font: inherit; }
+/* Step 5: inspection details, issue fields and submit button */
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; font-weight: 600; color: #5a6170; }
+input { font: inherit; font-size: 1rem; padding: 10px; min-height: 44px; box-sizing: border-box; width: 100%; border: 1px solid #d9dce2; border-radius: 8px; background: white; color: #15181e; }
+.details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: white; border: 1px solid #d9dce2; border-radius: 10px; padding: 12px; margin: 16px 0; }
+.issue-details { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.issue-details textarea { margin-top: 0; }
+.classes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.classes button { min-height: 40px; border: 1px solid #d9dce2; border-radius: 8px; background: #f2f3f5; color: #5a6170; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+.classes button.selected { background: #fbe9e9; border-color: #c0282b; color: #c0282b; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.submit { width: 100%; min-height: 52px; margin: 24px 0 40px; border: 0; border-radius: 10px; background: #d9500a; color: white; font-size: 1.05rem; font-weight: 700; cursor: pointer; }
+.submit:disabled { background: #c9ccd3; color: #5a6170; cursor: not-allowed; }
+.message { background: #e7f4ec; border: 1px solid #1d8048; border-radius: 8px; padding: 10px 12px; }
+@media (max-width: 500px) { .details, .row { grid-template-columns: 1fr; } }
