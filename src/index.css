@@ -12,3 +12,39 @@ input { font: inherit; font-size: 1rem; padding: 10px; min-height: 44px; box-siz
 .submit:disabled { background: #c9ccd3; color: #5a6170; cursor: not-allowed; }
 .message { background: #e7f4ec; border: 1px solid #1d8048; border-radius: 8px; padding: 10px 12px; }
 @media (max-width: 500px) { .details, .row { grid-template-columns: 1fr; } }
+/* Step 6: top bar, tabs, dashboard and actions */
+.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 16px; background: white; border-bottom: 1px solid #d9dce2; }
+.brand { color: #d9500a; font-size: 1.2rem; }
+.tabs { display: flex; gap: 4px; background: #f2f3f5; padding: 3px; border-radius: 9px; }
+.tabs button { border: 0; background: transparent; padding: 8px 14px; border-radius: 7px; font: inherit; font-weight: 600; color: #5a6170; cursor: pointer; }
+.tabs button.active { background: white; color: #15181e; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 16px 0; }
+.tile { background: white; border: 1px solid #d9dce2; border-radius: 10px; padding: 12px; }
+.tile .number { display: block; font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.tile .label { font-size: 0.85rem; color: #5a6170; }
+.tile.alert .number { color: #c0282b; }
+.card { background: white; border: 1px solid #d9dce2; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
+.action-card { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+.action-card .title { font-weight: 600; margin: 0; }
+.badge { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; font-weight: 700; border: 2px solid currentColor; }
+.badge.A { color: #c0282b; background: #fbe9e9; }
+.badge.B { color: #a86a12; background: #fbf1e1; }
+.badge.C { color: #5a6170; background: #f2f3f5; }
+.small { font-size: 0.85rem; margin: 2px 0 0; }
+.pill { display: inline-block; margin-top: 6px; padding: 2px 9px; border-radius: 99px; font-size: 0.78rem; font-weight: 700; }
+.pill.open { background: #fbf1e1; color: #a86a12; }
+.pill.overdue { background: #fbe9e9; color: #c0282b; }
+.pill.done { background: #e7f4ec; color: #1d8048; }
+.card-buttons { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.small-button { min-height: 36px; padding: 6px 12px; border: 1px solid #d9dce2; border-radius: 8px; background: white; font: inherit; font-weight: 600; cursor: pointer; }
+.small-button.primary { background: #1d8048; border-color: #1d8048; color: white; }
+.link-button { background: none; border: 0; padding: 4px 0; color: #d9500a; font: inherit; font-weight: 600; cursor: pointer; }
+.inspection-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.score { font-size: 1.3rem; font-weight: 700; }
+.score.good { color: #1d8048; }
+.score.warn { color: #a86a12; }
+.score.bad { color: #c0282b; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 12px 0; }
+select { font: inherit; padding: 8px 10px; min-height: 40px; border: 1px solid #d9dce2; border-radius: 8px; background: white; color: #15181e; }
+.error { color: #c0282b; }
+@media (min-width: 700px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
