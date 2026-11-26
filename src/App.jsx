@@ -1,9 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { retailChecklist } from './checklists'
+import { supabase } from './supabase'
 
 function App() {
   // results remembers each answer, e.g. { 'Aisles clear...': { result: 'ok' } }
   const [results, setResults] = useState({})
+  const [dbStatus, setDbStatus] = useState('Checking database...')
+
+  // Runs once when the page opens: asks the database how many inspections exist
+  useEffect(() => {
+    supabase
+      .from('inspections')
+      .select('*', { count: 'exact', head: true })
+      .then(({ count, error }) => {
+        setDbStatus(error ? `Database error: ${error.message}` : `Database connected · ${count} inspections saved`)
+      })
+  }, [])
 
   const allItems = retailChecklist.sections.flatMap((section) => section.items)
   const checked = Object.keys(results).length
@@ -24,6 +36,7 @@ function App() {
       <p className="progress">
         {checked} of {allItems.length} checked · {issues} issues
       </p>
+      <p className="muted">{dbStatus}</p>
 
       {retailChecklist.sections.map((section) => (
         <section key={section.title}>
